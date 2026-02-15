@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.env
+
+# Data & Models
+data/
+models/
+outputs/
+
+# MLflow
+mlruns/
+mlflow.db
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Notebooks
+.ipynb_checkpoints/

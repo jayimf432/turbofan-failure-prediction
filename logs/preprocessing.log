@@ -1,0 +1,38 @@
+2026-02-14 19:06:37,838 - __main__ - INFO - Starting preprocessing pipeline...
+2026-02-14 19:06:37,838 - __main__ - INFO - Loading data from /Users/jay-mac/Documents/End to End ML Projects/prediction project/data/raw/train_FD001.txt
+2026-02-14 19:06:37,880 - __main__ - INFO - Data loaded successfully. Shape: (20631, 26)
+2026-02-14 19:06:37,889 - __main__ - INFO - Initial missing values: 0
+2026-02-14 19:06:37,906 - __main__ - INFO - Missing values handled. Remaining: 0
+2026-02-14 19:06:37,906 - __main__ - INFO - Removing outliers with IQR threshold: 1.5
+2026-02-14 19:06:37,928 - __main__ - INFO - Outliers processed (capped): 5406 values affected.
+2026-02-14 19:06:37,929 - __main__ - INFO - Engineering temporal features...
+2026-02-14 19:06:37,932 - __main__ - INFO - Added features: hour, day_of_week, month
+2026-02-14 19:06:37,932 - __main__ - INFO - Creating train/test split...
+2026-02-14 19:06:37,937 - __main__ - INFO - Split by Units - Train Units: 80, Test Units: 20
+2026-02-14 19:06:37,937 - __main__ - INFO - Train set shape: (16138, 31), Test set shape: (4493, 31)
+2026-02-14 19:06:37,937 - __main__ - INFO - Normalizing sensors in train mode...
+2026-02-14 19:06:37,941 - __main__ - INFO - Scaler saved to /Users/jay-mac/Documents/End to End ML Projects/prediction project/models/scaler.joblib
+2026-02-14 19:06:37,941 - __main__ - INFO - Normalizing sensors in test mode...
+2026-02-14 19:06:37,943 - __main__ - INFO - Loaded scaler and transformed data
+2026-02-14 19:06:37,943 - __main__ - INFO - Saving processed data to /Users/jay-mac/Documents/End to End ML Projects/prediction project/data/processed
+2026-02-14 19:06:38,264 - __main__ - INFO - Data saved successfully.
+2026-02-14 19:06:38,264 - __main__ - INFO - Preprocessing pipeline completed successfully.
+2026-02-14 20:44:22,444 - __main__ - INFO - Starting preprocessing pipeline...
+2026-02-14 20:44:22,444 - __main__ - INFO - Loading data from /Users/jay-mac/Documents/End to End ML Projects/prediction project/data/raw/train_FD001.txt
+2026-02-14 20:44:22,471 - __main__ - INFO - Data loaded successfully. Shape: (20631, 26)
+2026-02-14 20:44:22,477 - __main__ - INFO - Initial missing values: 0
+2026-02-14 20:44:22,492 - __main__ - INFO - Missing values handled. Remaining: 0
+2026-02-14 20:44:22,492 - __main__ - INFO - Removing outliers with IQR threshold: 1.5
+2026-02-14 20:44:22,514 - __main__ - INFO - Outliers processed (capped): 5406 values affected.
+2026-02-14 20:44:22,514 - __main__ - INFO - Engineering temporal features...
+2026-02-14 20:44:22,520 - __main__ - INFO - Added features: hour, day_of_week, month
+2026-02-14 20:44:22,520 - __main__ - INFO - Creating train/test split...
+2026-02-14 20:44:22,524 - __main__ - INFO - Split by Units - Train Units: 80, Test Units: 20
+2026-02-14 20:44:22,524 - __main__ - INFO - Train set shape: (16138, 30), Test set shape: (4493, 30)
+2026-02-14 20:44:22,524 - __main__ - INFO - Normalizing sensors in train mode...
+2026-02-14 20:44:22,531 - __main__ - INFO - Scaler saved to /Users/jay-mac/Documents/End to End ML Projects/prediction project/models/scaler.joblib
+2026-02-14 20:44:22,531 - __main__ - INFO - Normalizing sensors in test mode...
+2026-02-14 20:44:22,533 - __main__ - INFO - Loaded scaler and transformed data
+2026-02-14 20:44:22,533 - __main__ - INFO - Saving processed data to /Users/jay-mac/Documents/End to End ML Projects/prediction project/data/processed
+2026-02-14 20:44:22,884 - __main__ - INFO - Data saved successfully.
+2026-02-14 20:44:22,884 - __main__ - INFO - Preprocessing pipeline completed successfully.
