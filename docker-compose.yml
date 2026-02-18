@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    image: turbofan-api:latest
+    container_name: turbofan_api
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=postgresql://user:password@db:5432/turbofan
+    volumes:
+      - ./models:/app/models
+      - ./logs:/app/logs
+    depends_on:
+      - redis
+      - db
+    networks:
+      - turbofan_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  redis:
+    image: redis:alpine
+    container_name: turbofan_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - turbofan_net
+    healthcheck:
+        test: ["CMD", "redis-cli", "ping"]
+        interval: 10s
+        timeout: 5s
+        retries: 3
+
+  db:
+    image: postgres:15-alpine
+    container_name: turbofan_db
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: turbofan
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - turbofan_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d turbofan"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: streamlit run src/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+    networks:
+      - turbofan_net
+
+volumes:
+  postgres_data:
+  
+networks:
+  turbofan_net:
+    driver: bridge

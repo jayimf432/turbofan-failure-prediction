@@ -1,0 +1,38 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Jupyter
+.ipynb_checkpoints
+
+# Environment
+.env
+.DS_Store
+
+# Data & Models (Mount these as volumes instead)
+data/
+outputs/
+logs/
+tests/
+# We need models/ because code loads from there, but ideally models are mounted providing flexibility.
+# However, usually we bake the model into the image for immutability OR mount it.
+# User asked to copy specific folders. 
+# "Copy only necessary files (api/, models/, src/)"
+# So let's NOT ignore models.
+
+# Documentation
+docs/
+notebooks/
+manual_download.py
